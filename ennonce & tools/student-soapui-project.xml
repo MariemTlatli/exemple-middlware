@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="372cbcf9-9c14-45b7-a198-9bb42910e6c4" activeEnvironment="Default" name="student" resourceRoot="" soapui-version="5.7.2" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="9acc15d8-98f9-4fcf-9d85-a87dfe7b9d27" wsaVersion="NONE" name="StudentPortSoap11" type="wsdl" bindingName="{http://soap.ws.rj.com/}StudentPortSoap11" soapVersion="1_1" anonymous="optional" definition="http://localhost:8088/ws/student.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8088/ws/student.wsdl"><con:part><con:url>http://localhost:8088/ws/student.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://soap.ws.rj.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://soap.ws.rj.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://soap.ws.rj.com/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://soap.ws.rj.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="getGradeRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getGradeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="student" type="tns:student"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="student">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string"/>
+          <xs:element name="grade" type="xs:double"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getGradeResponse">
+    <wsdl:part element="tns:getGradeResponse" name="getGradeResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getGradeRequest">
+    <wsdl:part element="tns:getGradeRequest" name="getGradeRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="StudentPort">
+    <wsdl:operation name="getGrade">
+      <wsdl:input message="tns:getGradeRequest" name="getGradeRequest"></wsdl:input>
+      <wsdl:output message="tns:getGradeResponse" name="getGradeResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="StudentPortSoap11" type="tns:StudentPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getGrade">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getGradeRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getGradeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="StudentPortService">
+    <wsdl:port binding="tns:StudentPortSoap11" name="StudentPortSoap11">
+      <soap:address location="http://localhost:8088/ws"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8088/ws</con:endpoint></con:endpoints><con:operation id="6492a478-ef6f-4420-8488-54d103da8c2a" isOneWay="false" action="" name="getGrade" bindingOperationName="getGrade" type="Request-Response" outputName="getGradeResponse" inputName="getGradeRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1f67341a-a838-47d3-8402-8bf86fde4817" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8088/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://soap.ws.rj.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:getGradeRequest>\r
+         <soap:name>Anonymous</soap:name>\r
+      </soap:getGradeRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://soap.ws.rj.com/StudentPort/getGradeRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

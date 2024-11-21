@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="e03ba986-570a-41ad-b0e4-bcd3bfa2a241" activeEnvironment="Default" name="calculator" resourceRoot="" soapui-version="5.7.2" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="54d08520-d067-4143-8865-0c35e31107a6" wsaVersion="NONE" name="CalculatorPortSoap11" type="wsdl" bindingName="{http://soap.ws.rj.com/}CalculatorPortSoap11" soapVersion="1_1" anonymous="optional" definition="http://localhost:8089/ws/calculator.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8089/ws/calculator.wsdl"><con:part><con:url>http://localhost:8089/ws/calculator.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://soap.ws.rj.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://soap.ws.rj.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://soap.ws.rj.com/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://soap.ws.rj.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="getSumRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="a" type="xs:int"/>
+            <xs:element name="b" type="xs:int"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getSumResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="c" type="xs:int"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getSumResponse">
+    <wsdl:part element="tns:getSumResponse" name="getSumResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSumRequest">
+    <wsdl:part element="tns:getSumRequest" name="getSumRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CalculatorPort">
+    <wsdl:operation name="getSum">
+      <wsdl:input message="tns:getSumRequest" name="getSumRequest"></wsdl:input>
+      <wsdl:output message="tns:getSumResponse" name="getSumResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CalculatorPortSoap11" type="tns:CalculatorPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getSum">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getSumRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getSumResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CalculatorPortService">
+    <wsdl:port binding="tns:CalculatorPortSoap11" name="CalculatorPortSoap11">
+      <soap:address location="http://localhost:8089/ws"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8089/ws</con:endpoint></con:endpoints><con:operation id="aa3a47bd-7296-477f-b8ec-ee01c7edb545" isOneWay="false" action="" name="getSum" bindingOperationName="getSum" type="Request-Response" outputName="getSumResponse" inputName="getSumRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="477d6149-460d-4472-b112-050d8921782d" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8089/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://soap.ws.rj.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:getSumRequest>\r
+         <soap:a>1</soap:a>\r
+         <soap:b>2</soap:b>\r
+      </soap:getSumRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://soap.ws.rj.com/CalculatorPort/getSumRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

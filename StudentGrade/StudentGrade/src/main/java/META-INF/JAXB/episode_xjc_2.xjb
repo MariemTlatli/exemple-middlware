@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bindings version="3.0" xmlns="https://jakarta.ee/xml/ns/jaxb">
+  <!--
+
+Ce fichier a été généré par Eclipse Implementation of JAXB, v3.0.2 
+Voir https://eclipse-ee4j.github.io/jaxb-ri 
+Toute modification apportée à ce fichier sera perdue lors de la recompilation du schéma source. 
+Généré le : 2024.11.20 à 04:19:52 PM CET 
+
+  -->
+  <bindings scd="x-schema::tns" xmlns:tns="http://soap.ws.rj.com/">
+    <schemaBindings map="false">
+      <package name="com.rj.ws.soap"/>
+    </schemaBindings>
+    <bindings scd="tns:getGradeRequest">
+      <class ref="com.rj.ws.soap.GetGradeRequest"/>
+    </bindings>
+    <bindings scd="tns:getGradeResponse">
+      <class ref="com.rj.ws.soap.GetGradeResponse"/>
+    </bindings>
+    <bindings scd="~tns:student">
+      <class ref="com.rj.ws.soap.Student"/>
+    </bindings>
+  </bindings>
+</bindings>
+
